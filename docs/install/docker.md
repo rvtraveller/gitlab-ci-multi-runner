@@ -122,6 +122,11 @@ gitlab/gitlab-runner    alpine              7c431ac8f30f        13 hours ago    
 
 The original `gitlab/gitlab-runner:latest` is based on Ubuntu 14.04 LTS.
 
+## Auto registration and deregistration
+
+If `REGISTRATION_TOKEN` env var is set  the runner will be autoregistered
+and deregistered when the container is stopped.
+
 ## SELinux
 
 Some distributions (CentOS, RedHat, Fedora) use SELinux by default to enhance the security of the underlying system.
@@ -142,6 +147,7 @@ docker run -d --name gitlab-runner --restart always \
   -v /srv/gitlab-runner/config:/etc/gitlab-runner:Z \
   gitlab/gitlab-runner:latest
 ```
+
 
 More information about the cause and resolution can be found here:
 http://www.projectatomic.io/blog/2015/06/using-volumes-with-docker-can-cause-problems-with-selinux/
